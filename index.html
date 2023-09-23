@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>GDG Bhilai | CFP</title>
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+      <link rel="manifest" href="/site.webmanifest">
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+      <meta name="msapplication-TileColor" content="#da532c">
+      <meta name="theme-color" content="#ffffff">
+
+
+
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title" style="font-family: GoogleSansRegular;">
+            Call for papers, <span style="font-family: GoogleSansBold;">Coming Soon</span> <br> Stay Tuned!
+         </div>
+         <form action="#" class="form">
+            <div class="email-field">
+               <input type="email" placeholder="Enter Email Address" required style="font-family: GoogleSansRegular;">
+               <button type="submit" style="font-family: GoogleSansRegular;">Subscribe</button>
+            </div>
+         </form>
+         <div class="count-down">
+            <div class="timer day">
+               <div class="count">
+                  <div class="numb" style="font-family: GoogleSansRegular;">
+                     00
+                  </div>
+                  <div class="text" style="font-family: GoogleSansRegular;">
+                     Days
+                  </div>
+               </div>
+            </div>
+            <div class="clone">
+               :
+            </div>
+            <div class="timer hour">
+               <div class="count">
+                  <div class="numb" style="font-family: GoogleSansRegular;">
+                     00
+                  </div>
+                  <div class="text" style="font-family: GoogleSansRegular;">
+                     Hours
+                  </div>
+               </div>
+            </div>
+            <div class="clone">
+               :
+            </div>
+            <div class="timer min">
+               <div class="count">
+                  <div class="numb" style="font-family: GoogleSansRegular;">
+                     00
+                  </div>
+                  <div class="text" style="font-family: GoogleSansRegular;">
+                     Minutes
+                  </div>
+               </div>
+            </div>
+            <div class="clone">
+               :
+            </div>
+            <div class="timer sec">
+               <div class="count">
+                  <div class="numb" style="font-family: GoogleSansRegular;">
+                     00
+                  </div>
+                  <div class="text" style="font-family: GoogleSansRegular;">
+                     Seconds
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         const day = document.querySelector(".day .numb");
+         const hour = document.querySelector(".hour .numb");
+         const min = document.querySelector(".min .numb");
+         const sec = document.querySelector(".sec .numb");
+         var timer = setInterval(()=>{
+           var currentDate = new Date().getTime();
+           var launchDate = new Date('Sep 24, 2023 00:00:00').getTime();
+           var duration = launchDate - currentDate;
+           var days = Math.floor(duration / (1000 * 60 * 60 * 24));
+           var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+           var minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+           var seconds = Math.floor((duration % (1000 * 60)) / 1000);
+           day.innerHTML = days;
+           hour.innerHTML = hours;
+           min.innerHTML = minutes;
+           sec.innerHTML = seconds;
+           if(days < 10){
+             day.innerHTML = '0' + days;
+           }
+           if(hours < 10){
+             hour.innerHTML = '0' + hours;
+           }
+           if(minutes < 10){
+             min.innerHTML = '0' + minutes;
+           }
+           if(seconds < 10){
+             sec.innerHTML = '0' + seconds;
+           }
+           if(duration < 0){
+             clearInterval(timer);
+           }
+         }, 1000);
+      </script>
+   </body>
+</html>
